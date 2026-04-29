@@ -1,0 +1,19 @@
+{
+  "name": "sala-inteligente-3d",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Visualización 3D interactiva de una sala de juntas convencional vs. una sala inteligente con IA — Facility Management Totalplay",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0 --port ${PORT:-4173}",
+    "start": "vite preview --host 0.0.0.0 --port ${PORT:-4173}"
+  },
+  "dependencies": {
+    "three": "^0.169.0"
+  },
+  "devDependencies": {
+    "vite": "^5.4.10"
+  }
+}

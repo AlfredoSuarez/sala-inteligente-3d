@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sala Inteligente con IA — Facility Management</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header class="topbar">
+        <div class="brand">
+          <span class="dot"></span>
+          <h1>Sala Inteligente con IA</h1>
+          <span class="tag">Facility Management · Abril 2026</span>
+        </div>
+        <nav class="modes">
+          <button data-mode="before" class="active">Sala convencional</button>
+          <button data-mode="after">Sala inteligente</button>
+          <button data-mode="concept" class="ghost">Render IA (concepto)</button>
+        </nav>
+      </header>
+
+      <main>
+        <section id="canvas-wrap">
+          <canvas id="stage"></canvas>
+          <img id="concept-img" src="/images/sala-inteligente-concept.png" alt="Render IA conceptual" hidden />
+          <div class="hud">
+            <div class="hud-row" id="hud-mode">Modo: <strong>Sala convencional</strong></div>
+            <div class="hud-row hud-tip">Click izq.: rotar · Rueda: zoom · Click der.: paneo</div>
+          </div>
+        </section>
+
+        <aside class="panel">
+          <h2>Aditamentos detectados</h2>
+          <ul id="addons-list"></ul>
+
+          <h2>Estimación de inversión</h2>
+          <div id="cost-block" class="cost"></div>
+
+          <h2>Stack recomendado</h2>
+          <ul class="stack">
+            <li><strong>Software IA:</strong> Fireflies.ai + MS Copilot / Zoom AI Companion 3.0</li>
+            <li><strong>Video bar:</strong> Logitech Rally Bar (RightSight, 4.5 m)</li>
+            <li><strong>Audio techo:</strong> Shure MXA920 (Dante / AES67)</li>
+            <li><strong>Pizarrón:</strong> Neat Board 65"</li>
+            <li><strong>Portátil:</strong> Plaud NotePin (transcripción local)</li>
+            <li><strong>Red:</strong> WiFi 6 + VLAN dedicada · ≥10 Mbps por sala</li>
+          </ul>
+        </aside>
+      </main>
+
+      <footer>
+        <span>Generado con Three.js + Vite · Imagen conceptual con OpenAI DALL·E 3 · Presentación con Beautiful.ai</span>
+      </footer>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
