@@ -28,7 +28,7 @@ export function buildRoom() {
     new THREE.MeshStandardMaterial({ color: 0xb89a78, roughness: 0.85 })
   );
   woodStrip.rotation.x = -Math.PI / 2;
-  woodStrip.position.set(ROOM.width / 2 - 0.7, 0.005, 0);
+  woodStrip.position.set(-ROOM.width / 2 + 0.7, 0.005, 0);
   g.add(woodStrip);
 
   // ===== Ceiling: drop tile pattern =====
@@ -101,23 +101,23 @@ export function buildRoom() {
     side: THREE.DoubleSide,
   });
 
-  // Door is on +X end. Glass occupies the rest.
-  const doorX = ROOM.width / 2 - ROOM.doorWidth / 2 - 0.05; // door slot at +X end
-  const glassEndX = doorX - ROOM.doorWidth / 2 - 0.04;     // glass ends here
-  const glassWidth = (ROOM.width / 2) + glassEndX;          // from -W/2 to glassEndX
+  // Door is on -X end. Glass occupies the rest (toward +X).
+  const doorX = -ROOM.width / 2 + ROOM.doorWidth / 2 + 0.05;  // door slot at -X end
+  const glassStartX = doorX + ROOM.doorWidth / 2 + 0.04;       // glass starts here
+  const glassWidth = (ROOM.width / 2) - glassStartX;            // from glassStartX to +W/2
 
   // Big glass panel
   const glass = new THREE.Mesh(
     new THREE.PlaneGeometry(glassWidth, ROOM.height),
     glassMat
   );
-  glass.position.set(-ROOM.width / 2 + glassWidth / 2, ROOM.height / 2, ROOM.depth / 2);
+  glass.position.set(glassStartX + glassWidth / 2, ROOM.height / 2, ROOM.depth / 2);
   g.add(glass);
 
   // Glass mullions (vertical aluminum bars every ~1.2 m)
   const mullionMat = new THREE.MeshStandardMaterial({ color: 0x2a2e36, metalness: 0.6, roughness: 0.4 });
   const mullionStep = 1.2;
-  for (let mx = -ROOM.width / 2 + mullionStep; mx < glassEndX; mx += mullionStep) {
+  for (let mx = glassStartX + mullionStep; mx < ROOM.width / 2 - 0.05; mx += mullionStep) {
     const m = new THREE.Mesh(
       new THREE.BoxGeometry(0.04, ROOM.height, 0.05),
       mullionMat
@@ -130,7 +130,7 @@ export function buildRoom() {
     new THREE.BoxGeometry(glassWidth, 0.06, 0.05),
     mullionMat
   );
-  railTop.position.set(-ROOM.width / 2 + glassWidth / 2, ROOM.height - 0.03, ROOM.depth / 2);
+  railTop.position.set(glassStartX + glassWidth / 2, ROOM.height - 0.03, ROOM.depth / 2);
   g.add(railTop);
   const railBot = railTop.clone();
   railBot.position.y = 0.03;
@@ -146,14 +146,14 @@ export function buildRoom() {
   transom.rotation.y = Math.PI;
   g.add(transom);
 
-  // Wall segment to the right of door (between door and corner)
-  const sidePadW = ROOM.width / 2 - (doorX + ROOM.doorWidth / 2);
+  // Wall segment to the LEFT of door (between door and -X corner)
+  const sidePadW = (doorX - ROOM.doorWidth / 2) - (-ROOM.width / 2);
   if (sidePadW > 0.01) {
     const sidePad = new THREE.Mesh(
       new THREE.PlaneGeometry(sidePadW, ROOM.height),
       wallMat
     );
-    sidePad.position.set(doorX + ROOM.doorWidth / 2 + sidePadW / 2, ROOM.height / 2, ROOM.depth / 2);
+    sidePad.position.set(-ROOM.width / 2 + sidePadW / 2, ROOM.height / 2, ROOM.depth / 2);
     sidePad.rotation.y = Math.PI;
     g.add(sidePad);
   }
@@ -165,12 +165,12 @@ export function buildRoom() {
   );
   door.position.set(doorX, ROOM.doorHeight / 2, ROOM.depth / 2 - 0.005);
   g.add(door);
-  // Door handle
+  // Door handle (on the side closer to glass = +X side now)
   const handle = new THREE.Mesh(
     new THREE.BoxGeometry(0.12, 0.025, 0.04),
     new THREE.MeshStandardMaterial({ color: 0xb0b3b8, metalness: 0.85, roughness: 0.25 })
   );
-  handle.position.set(doorX - ROOM.doorWidth / 2 + 0.12, 1.05, ROOM.depth / 2 - 0.03);
+  handle.position.set(doorX + ROOM.doorWidth / 2 - 0.12, 1.05, ROOM.depth / 2 - 0.03);
   g.add(handle);
   // Door frame
   const frameMat = new THREE.MeshStandardMaterial({ color: 0x4d3320, roughness: 0.7 });
