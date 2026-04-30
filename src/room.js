@@ -200,36 +200,48 @@ export function buildRoom() {
     g.add(pl);
   }
 
-  // ===== 2 CEILING SPEAKERS (white round, recessed look) =====
-  const spkMat = new THREE.MeshStandardMaterial({ color: 0xf5f5f5, roughness: 0.7 });
+  // ===== 2 CEILING SPEAKERS (bar shape, perpendicular to LED tubes which run along X) =====
+  // Bars run along Z (depth axis) — perpendicular to the long LED tubes.
+  const spkBarMat = new THREE.MeshStandardMaterial({ color: 0xeceef2, roughness: 0.75 });
   const spkRimMat = new THREE.MeshStandardMaterial({ color: 0xb8bcc4, metalness: 0.3, roughness: 0.5 });
-  const speakerPositions = [
-    [-ROOM.width / 4, -ROOM.depth / 4],
-    [ ROOM.width / 4,  ROOM.depth / 4],
+  const spkBarLength = 1.6;
+  const spkBarPositions = [
+    [-ROOM.width / 4, 0],
+    [ ROOM.width / 4, 0],
   ];
-  for (const [sx, sz] of speakerPositions) {
+  for (const [sx, sz] of spkBarPositions) {
     const spk = new THREE.Group();
-    const ring = new THREE.Mesh(
-      new THREE.CylinderGeometry(0.18, 0.18, 0.04, 28),
+    // Outer rim/frame
+    const rim = new THREE.Mesh(
+      new THREE.BoxGeometry(0.20, 0.04, spkBarLength),
       spkRimMat
     );
-    ring.position.set(0, ROOM.height - 0.02, 0);
-    const cone = new THREE.Mesh(
-      new THREE.CylinderGeometry(0.13, 0.13, 0.02, 28),
-      spkMat
+    rim.position.set(0, ROOM.height - 0.02, 0);
+    spk.add(rim);
+    // Speaker face (slightly inset)
+    const face = new THREE.Mesh(
+      new THREE.BoxGeometry(0.16, 0.018, spkBarLength - 0.04),
+      spkBarMat
     );
-    cone.position.set(0, ROOM.height - 0.035, 0);
-    // Tiny mesh dots
-    for (let r = 0.03; r <= 0.10; r += 0.035) {
-      const dotRing = new THREE.Mesh(
-        new THREE.RingGeometry(r - 0.003, r, 24),
-        new THREE.MeshStandardMaterial({ color: 0x9aa0a8, side: THREE.DoubleSide })
-      );
-      dotRing.rotation.x = -Math.PI / 2;
-      dotRing.position.set(0, ROOM.height - 0.043, 0);
-      spk.add(dotRing);
+    face.position.set(0, ROOM.height - 0.043, 0);
+    spk.add(face);
+    // Perforation dots along the bar (downward facing)
+    const dotMat = new THREE.MeshStandardMaterial({ color: 0x9aa0a8 });
+    const dotRows = 2;
+    const dotsPerRow = 18;
+    for (let r = 0; r < dotRows; r++) {
+      for (let c = 0; c < dotsPerRow; c++) {
+        const dot = new THREE.Mesh(
+          new THREE.CircleGeometry(0.012, 10),
+          dotMat
+        );
+        dot.rotation.x = Math.PI / 2;
+        const dx = (r === 0 ? -0.035 : 0.035);
+        const dz = -spkBarLength / 2 + 0.05 + c * ((spkBarLength - 0.10) / (dotsPerRow - 1));
+        dot.position.set(dx, ROOM.height - 0.053, dz);
+        spk.add(dot);
+      }
     }
-    spk.add(ring, cone);
     spk.position.set(sx, 0, sz);
     spk.userData.isSpeaker = true;
     g.add(spk);
