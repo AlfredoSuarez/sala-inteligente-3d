@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" font-family="-apple-system, 'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f7f9fc"/>
+      <stop offset="1" stop-color="#eef2f7"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="9" markerHeight="9" orient="auto">
+      <path d="M0,0 L12,6 L0,12 Z" fill="#3a4a66"/>
+    </marker>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0f1a2b" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bgGrad)"/>
+
+  <!-- Title -->
+  <text x="800" y="58" text-anchor="middle" font-size="32" font-weight="700" fill="#0f1a2b">
+    Workflow Automatizado de Reuniones — Facility Management
+  </text>
+  <text x="800" y="92" text-anchor="middle" font-size="18" fill="#5a6478">
+    De la conversación al deliverable en menos de 8 minutos · sin intervención humana
+  </text>
+
+  <!-- ZAPIER ribbon (right side, vertical) -->
+  <g>
+    <rect x="1430" y="140" width="120" height="640" rx="14" fill="#FF4F00"/>
+    <text x="1490" y="200" text-anchor="middle" font-size="22" font-weight="700" fill="#fff">ZAPIER</text>
+    <text x="1490" y="226" text-anchor="middle" font-size="12" fill="#fff" opacity="0.95">automatización</text>
+    <text x="1490" y="246" text-anchor="middle" font-size="12" fill="#fff" opacity="0.95">(sin código)</text>
+    <line x1="1490" y1="280" x2="1490" y2="720" stroke="#fff" stroke-width="2" stroke-dasharray="6 6" opacity="0.7"/>
+    <circle cx="1490" cy="320" r="6" fill="#fff"/>
+    <circle cx="1490" cy="430" r="6" fill="#fff"/>
+    <circle cx="1490" cy="560" r="6" fill="#fff"/>
+    <circle cx="1490" cy="680" r="6" fill="#fff"/>
+    <text x="1490" y="755" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">$19.99/mes</text>
+  </g>
+
+  <!-- Step 1: Sala -->
+  <g filter="url(#shadow)">
+    <rect x="120" y="140" width="520" height="120" rx="14" fill="#fff" stroke="#cfd6e0"/>
+    <rect x="120" y="140" width="8" height="120" rx="2" fill="#FFB400"/>
+    <text x="156" y="178" font-size="22" font-weight="700" fill="#0f1a2b">SALA · Cuenta Fireflies "Sala"</text>
+    <text x="156" y="208" font-size="15" fill="#3a4a66">Bot "Fred" · Auto-Join · Calendario del recurso</text>
+    <text x="156" y="232" font-size="14" fill="#5a6478">Zoom · Google Meet · Microsoft Teams</text>
+    <text x="610" y="252" text-anchor="end" font-size="12" font-weight="700" fill="#FFB400">Plan Pro $19/usr/mes</text>
+  </g>
+  <line x1="380" y1="270" x2="380" y2="320" stroke="#3a4a66" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <!-- Step 2: Fireflies center -->
+  <g filter="url(#shadow)">
+    <rect x="120" y="330" width="1280" height="130" rx="16" fill="#0f1a2b"/>
+    <rect x="120" y="330" width="14" height="130" rx="2" fill="#FF4F00"/>
+    <circle cx="200" cy="395" r="32" fill="#FF4F00"/>
+    <text x="200" y="405" text-anchor="middle" font-size="28" font-weight="800" fill="#fff">FF</text>
+    <text x="260" y="375" font-size="22" font-weight="700" fill="#fff">FIREFLIES.AI · procesamiento al cierre de la reunión</text>
+    <text x="260" y="403" font-size="15" fill="#cfd6e0">Transcript multilenguaje · Resumen ejecutivo · Action items con responsable y fecha</text>
+    <text x="260" y="427" font-size="14" fill="#9ba8be">Speaker recognition · Custom vocabulary · 60+ integraciones nativas</text>
+    <text x="1380" y="447" text-anchor="end" font-size="13" font-weight="700" fill="#FFB400">800 min/mes gratis · desde $10/usuario/mes</text>
+  </g>
+
+  <!-- Branch arrows down to 3 outputs -->
+  <line x1="350" y1="465" x2="280" y2="540" stroke="#3a4a66" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="760" y1="465" x2="760" y2="540" stroke="#3a4a66" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="1170" y1="465" x2="1240" y2="540" stroke="#3a4a66" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <!-- Step 3a: Notion -->
+  <g filter="url(#shadow)">
+    <rect x="80" y="540" width="380" height="160" rx="14" fill="#fff" stroke="#cfd6e0"/>
+    <rect x="80" y="540" width="8" height="160" rx="2" fill="#000"/>
+    <circle cx="120" cy="580" r="22" fill="#000"/>
+    <text x="120" y="590" text-anchor="middle" font-size="20" font-weight="800" fill="#fff">N</text>
+    <text x="160" y="575" font-size="20" font-weight="700" fill="#0f1a2b">NOTION</text>
+    <text x="160" y="600" font-size="13" fill="#5a6478">Repositorio de minutas</text>
+    <text x="100" y="635" font-size="13" fill="#3a4a66">• Subpágina por reunión</text>
+    <text x="100" y="657" font-size="13" fill="#3a4a66">• Resumen + action items</text>
+    <text x="100" y="679" font-size="13" fill="#3a4a66">• Link a transcript y video</text>
+    <text x="440" y="697" text-anchor="end" font-size="12" font-weight="700" fill="#1a8c5a">Plan gratis</text>
+  </g>
+
+  <!-- Step 3b: Trello -->
+  <g filter="url(#shadow)">
+    <rect x="570" y="540" width="380" height="160" rx="14" fill="#fff" stroke="#cfd6e0"/>
+    <rect x="570" y="540" width="8" height="160" rx="2" fill="#0079BF"/>
+    <circle cx="610" cy="580" r="22" fill="#0079BF"/>
+    <text x="610" y="590" text-anchor="middle" font-size="20" font-weight="800" fill="#fff">T</text>
+    <text x="650" y="575" font-size="20" font-weight="700" fill="#0f1a2b">TRELLO</text>
+    <text x="650" y="600" font-size="13" fill="#5a6478">Gestión de tareas</text>
+    <text x="590" y="635" font-size="13" fill="#3a4a66">• Tarjeta por action item</text>
+    <text x="590" y="657" font-size="13" fill="#3a4a66">• Auto-asignación + fecha</text>
+    <text x="590" y="679" font-size="13" fill="#3a4a66">• Comando de voz en sala</text>
+    <text x="930" y="697" text-anchor="end" font-size="12" font-weight="700" fill="#1a8c5a">Plan gratis</text>
+  </g>
+
+  <!-- Step 3c: Gamma -->
+  <g filter="url(#shadow)">
+    <rect x="1060" y="540" width="380" height="160" rx="14" fill="#fff" stroke="#cfd6e0"/>
+    <rect x="1060" y="540" width="8" height="160" rx="2" fill="#7C3AED"/>
+    <circle cx="1100" cy="580" r="22" fill="#7C3AED"/>
+    <text x="1100" y="590" text-anchor="middle" font-size="20" font-weight="800" fill="#fff">G</text>
+    <text x="1140" y="575" font-size="20" font-weight="700" fill="#0f1a2b">GAMMA.APP</text>
+    <text x="1140" y="600" font-size="13" fill="#5a6478">Presentación ejecutiva</text>
+    <text x="1080" y="635" font-size="13" fill="#3a4a66">• 5 slides desde el resumen</text>
+    <text x="1080" y="657" font-size="13" fill="#3a4a66">• Tema corporativo</text>
+    <text x="1080" y="679" font-size="13" fill="#3a4a66">• URL editable y exportable</text>
+    <text x="1420" y="697" text-anchor="end" font-size="12" font-weight="700" fill="#7C3AED">Pro $8/mes</text>
+  </g>
+
+  <!-- Convergence arrows -->
+  <line x1="270" y1="710" x2="700" y2="780" stroke="#3a4a66" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="760" y1="710" x2="760" y2="780" stroke="#3a4a66" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="1250" y1="710" x2="820" y2="780" stroke="#3a4a66" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Step 4: Email -->
+  <g filter="url(#shadow)">
+    <rect x="500" y="780" width="600" height="90" rx="14" fill="#fff" stroke="#cfd6e0"/>
+    <rect x="500" y="780" width="8" height="90" rx="2" fill="#D93025"/>
+    <circle cx="540" cy="825" r="22" fill="#D93025"/>
+    <text x="540" y="833" text-anchor="middle" font-size="22" font-weight="800" fill="#fff">@</text>
+    <text x="580" y="815" font-size="20" font-weight="700" fill="#0f1a2b">GMAIL / OUTLOOK · Email automático de seguimiento</text>
+    <text x="580" y="843" font-size="14" fill="#5a6478">Resumen + action items + links a Notion · Gamma · grabación · transcript</text>
+    <text x="1080" y="863" text-anchor="end" font-size="12" font-weight="700" fill="#1a8c5a">Incluido en M365 / Workspace</text>
+  </g>
+</svg>
